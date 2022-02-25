@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
+# The include function allows me to reference another URLconf.
 
 urlpatterns = [
+    path('', include('gallery.urls')),
     path('admin/', admin.site.urls),
+
 ]
