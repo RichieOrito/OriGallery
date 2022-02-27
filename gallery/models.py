@@ -37,18 +37,21 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
 
     def save_category(self):
-        '''Method to save the category to the database.
+        '''
+        Method to save the category to the database.
         '''
         self.save()
 
     def delete_category(self):
-        '''Method to delete the category from the database.
+        '''
+        Method to delete the category from the database.
         '''
         self.delete()
 
     @classmethod
     def update_category(cls, id, name):
-        '''Method to update the category in the database.
+        '''
+        Method to update the category in the database.
         '''
         return cls.objects.filter(id=id).update(name=name)
 
@@ -68,12 +71,14 @@ class Image(models.Model):
     post_date = models.DateField(auto_now_add=True)
 
     def save_image(self):
-        '''Method to save the image to the database.
+        '''
+        Method to save the image to the database.
         '''
         self.save()
 
     def delete_image(self):
-        '''Method to delete the image from the database.
+        '''
+        Method to delete the image from the database.
         '''
         self.delete()
 
@@ -86,13 +91,15 @@ class Image(models.Model):
 
     @classmethod
     def get_image_by_id(cls, id):
-        '''Allows us to get an image using its ID.
+        '''
+        Method to get an image using its ID.
         '''
         return cls.objects.filter(id=id).all()
 
     @classmethod
     def search_image(cls, search_term):
-        '''Allows us to search for an image using its category.
+        '''
+        Method to search for an image using its category.
         '''
         try:
             category = Category.objects.get(name__icontains=search_term)
@@ -104,7 +111,7 @@ class Image(models.Model):
 
     @classmethod
     def filter_by_location(cls, location):
-        '''Allows us to filter images by the location.
+        '''Method to filter images by the location.
         '''
         return cls.objects.filter(location=location).all()
     
