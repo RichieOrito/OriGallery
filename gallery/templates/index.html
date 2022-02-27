@@ -1,4 +1,6 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,13 +8,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OriGallery</title>
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    
 </head>
 <body>
 
     <header id="top">
         <h1>OriGallery</h1>
     </header>
+
+    <section class="gallery">
+        <div class="row">
+            <div class="search">
+                <form action="{% url 'search_results' %}" class="search-form" role="search" autocomplete="off">
+                    <div class="input">
+                        <input type="text" name="search" placeholder="Wildlife, Vegetation, Scenaries,Cutlural..." id="search">
+                    </div>
+                    <div class="submit">
+                        <button type="submit">
+                            <i class='bx bx-search-alt-2'></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="nav">
+                <a href="{% url 'index'%}">All</a>
+                <a href="{% url 'location_nairobi'%}">Nairobi</a>
+                <a href="{% url 'location_kisumu'%}">Kisumu</a>
+                <a href="{% url 'location_nakuru'%}">Nakuru</a>
+                <a href="{% url 'location_voi'%}">Voi</a>
+                <a href="{% url 'location_machakos'%}">Machakos</a>
+                <a href="{% url 'location_taita'%}">Taita</a>
+                <a href="{% url 'location_,meru'%}">Meru</a>
+                <a href="{% url 'location_garissa'%}">Garissa</a>
+                <a href="{% url 'location_kakamega'%}">Kakamega</a>
+                <a href="{% url 'location_malindi'%}">Malindi</a>
+                <a href="{% url 'location_tsavo'%}">Tsavo</a>
+                <a href="{% url 'location_nanyuki'%}">Nanyuki</a>
+                <a href="{% url 'location_nyeri'%}">Nyeri</a>
+            </div>
+        </div>
+        <div class="gallery-part">
+            <ul>
+                {% if message %}
+                <h2 style="color: #3F3F3F;">{{ message }}</h2>
+                {% endif %}
+
+            <a href="#" class="close"></a>
+            {% for image in images %}
+            <li>
+                <a href="#pic" data-url='{{ image.image.url }}' data-name='{{ image.name }}'
+                    data-details='{{image.location.name}} | {{image.post_date | date}}'
+                    date-description='{{image.description}}'>
+                    <img src="{{image.image.url}}"
+                        alt="">
+                </a>
+            </li>
+            {%endfor%}
+            </ul>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <div id="pic" class="port">
+
+        <div class="row">
+            <div class="description">
+                <h1>Image 01</h1>
+                <p class="details"><strong> Nature | Kenya | 29th June </strong></p>
+                <p class="desc">#Dummy Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac
+                    purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
+                    <br>
+                    <div class="copy" >
+                        <p class="copy-click"><i class='bx bxs-copy-alt'></i></p>
+                        <p class="alert"></p>
+                    </div>
+            </div>
+
+            <img alt="">
+            
+        </div>
+    </div>
+
+
+        </div>
+    </section>
     
 </body>
 </html>
+
+{% endblock %}
