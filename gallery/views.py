@@ -67,7 +67,7 @@ def location_nyeri(request):
 
 def search_results(request):
 
-    return render(request, 'index.html',)
+    return render(request)
 
 
     
