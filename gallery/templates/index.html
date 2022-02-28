@@ -20,7 +20,7 @@
             <div class="search">
                 <form action="{% url 'search_results' %}" class="search-form" role="search" autocomplete="off">
                     <div class="input">
-                        <input type="text" name="search" placeholder="Wildlife, Vegetation, Scenaries,Cutlural..." id="search">
+                        <input type="text" name="search" placeholder="Wildlife, Vegetation, Scenaries,Cutlural,Beaches,Lakes,Waterfalls,Cities,Art,Lakes....." id="search">
                     </div>
                     <div class="submit">
                         <button type="submit">
@@ -49,7 +49,7 @@
         <div class="gallery-part">
             <ul>
                 {% if message %}
-                <h2 style="color: #3F3F3F;">{{ message }}</h2>
+                <h2 style="color: #fff;">{{ message }}</h2>
                 {% endif %}
 
             <a href="#" class="close"></a>
@@ -73,8 +73,8 @@
 
         <div class="row">
             <div class="description">
-                <h1>Image 01</h1>
-                <p class="details"><strong> Nature | Kenya | 29th June </strong></p>
+                <h1>Image</h1>
+                <p class="details"><strong> Nature | Kenya | 28th Feb </strong></p>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac
                     purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
                     <br>
@@ -89,10 +89,6 @@
         </div>
     </div>
 
-
-        </div>
-    </section>
-    
 </body>
 </html>
 
