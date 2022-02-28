@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .models import Category, Image, Location
 
 # Create your views here.
@@ -96,6 +96,22 @@ def location_nyeri(request):
     return render(request, 'index.html', {'images':images,})
 
 def search_results(request):
+
+    if 'search' in request.GET and request.GET['search']:
+        global images
+        search_term = request.GET.get('search')
+        message = f"{search_term}"
+        try:
+            images = Image.search_image(search_term)
+            if not images:
+                message = f'No results found for category "{search_term}". Please searching again from the given choices.'
+        except Image.DoesNotExist:
+            raise Http404()
+        return render(request, 'index.html', {'images':images, 'message':message,})
+
+    else:
+        message = "Please search for an item"
+        return render(request, 'index.html', {'images':images, "message":message})
 
     return render(request)
 
