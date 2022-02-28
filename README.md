@@ -15,13 +15,13 @@
 
 ## Description
 
-<p>A personal gallery application that displays photos from various counties in Kenya for others to see and viewers are abled to copy the links of the photos and share or search on them online..</p>
+<p>A personal gallery application that displays photos from various counties in Kenya for others to see and viewers are abled to copy the links of the photos and share or search on them online.</p>
 
 ## Behaviour Driven Development
 
 <p>
 
-* A user can view different stories.
+* A user can view different photos.
 * A user can click on a single photo to expand it and also view the details of the photo.
 * As user can search on different categories of photos.
 * A user can copy a link to the photo to share with my friends
