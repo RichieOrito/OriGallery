@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 # First we import the path function from the from the django.conf.urls . We then import the app's views module.
 # We then create a list named urlpatterns this will be a list of url instances for our app. We then create URL instances by calling the url function.
@@ -23,3 +25,7 @@ urlpatterns = [
     path('nyeri/', views.location_nyeri, name='location_nyeri'), 
     path('search/', views.search_results, name='search_results'), 
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
