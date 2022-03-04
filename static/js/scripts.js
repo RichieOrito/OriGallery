@@ -37,7 +37,7 @@ $(document).on('ready', function(){
 
     copyFunction = (url) => {
         const elem = document.createElement('input');
-        elem.value = url;
+        elem.value = "https://ori-gallery.herokuapp.com" + url;
         document.body.appendChild(elem);
         elem.select();
         document.execCommand('copy');
